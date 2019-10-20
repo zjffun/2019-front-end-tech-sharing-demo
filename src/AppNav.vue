@@ -16,39 +16,22 @@
     </ul>
 
     <!-- A Search form is another commmon non-linear way to navigate through a website. -->
-
-    <form class="nav__form form">
-      <input
-        class="form__search"
-        v-model="searchVal"
-        type="search"
-        name="q"
-        placeholder="Search query"
-      />
-      <input class="form__submit" @click="search" type="submit" value="Go!" />
-    </form>
+    <app-form></app-form>
   </nav>
 </template>
 
 <script>
+import AppForm from "./AppForm.vue";
 export default {
-  data: function() {
-    return {
-      searchVal: ""
-    };
+  components: {
+    AppForm
   },
-  methods: {
-    search() {
-      var wd = this.searchVal;
-      window.open("http://www.baidu.com/s?wd=" + wd, "_blank");
-    }
-  }
+  methods: {}
 };
 </script>
 
 <style lang="scss">
 $nav-background-color: #ff80ff;
-$submit-background-color: #333;
 
 .nav {
   height: 50px;
@@ -78,29 +61,6 @@ $submit-background-color: #333;
       text-decoration: none;
       color: black;
     }
-  }
-}
-
-.form {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  padding: 0 2em;
-  %input {
-    font-size: 1.6rem;
-    height: 32px;
-  }
-  &__search {
-    @extend %input;
-    flex: 3;
-  }
-  &__submit {
-    @extend %input;
-    flex: 1;
-    margin-left: 1rem;
-    background: $submit-background-color;
-    border: 0;
-    color: white;
   }
 }
 </style>
