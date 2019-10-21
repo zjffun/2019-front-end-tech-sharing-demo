@@ -4,11 +4,11 @@
       <h2 class="loginForm__title">用户登录</h2>
       <div class="loginForm__item">
         账号：
-        <input v-model="username" type="text" />
+        <input v-model="username" name="username" type="text" />
       </div>
       <div class="loginForm__item">
         密码：
-        <input v-model="password" type="password" />
+        <input v-model="password" name="password" type="password" />
       </div>
       <div class="loginForm__item">
         <button @click="login">登录</button>
