@@ -13,3 +13,21 @@ const app = new Vue({
   store: store(Vuex),
   router: router(VueRouter)
 });
+
+if (!window.Cypress) {
+  // PWA
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js");
+  }
+
+  // Notification
+  Notification.requestPermission().then(function(result) {
+    if (result === "granted") {
+      var options = {
+        body: "热烈欢迎",
+        icon: "icon.png"
+      };
+      new Notification("欢迎", options);
+    }
+  });
+}
